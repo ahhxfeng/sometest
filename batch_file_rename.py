@@ -34,6 +34,7 @@ def batch_rename(work_dir, old_ext, new_ext):
             os.rename(
                 os.path.join(work_dir, filename)
                 os.path.join(work_dir, newfile)
+                #what's problem
             )
         
 def get_parser():
