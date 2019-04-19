@@ -15,6 +15,10 @@ def index():
 def user(name):
     return '<h1>Hello %s</h1>' % name
 
+@app.route('/bad')
+def badtest():
+    return '<h1>bad test</h1>', 400
+
 if __name__ == "__main__":
     app.run(debug=True)
 
