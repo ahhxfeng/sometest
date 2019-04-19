@@ -5,7 +5,9 @@ __author__ = 'ahhxfeng'
 __version__ = '1.0.0'
 
 from flask import Flask
+from flask.ext.script import Manager
 app = Flask(__name__)
+Manager = Manager(app)
 
 @app.route('/')
 def index():
@@ -20,5 +22,6 @@ def badtest():
     return '<h1>bad test</h1>', 400
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # app.run(debug=True)
+    Manager.run()
 
