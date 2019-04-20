@@ -6,9 +6,12 @@ __version__ = '1.0.0'
 
 from flask import Flask, render_template
 from flask_script import Manager
+# from flask_bootstrp import Bootstrap
+from flask_bootstrap import bootstrap_find_resource
 
 app = Flask(__name__)
 Manager = Manager(app)
+bootstrap = Bootstrap(app)
 
 @app.route('/')
 def index():
