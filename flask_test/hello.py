@@ -8,6 +8,7 @@ from flask import Flask, render_template
 from flask_script import Manager
 # from flask_bootstrp import Bootstrap
 from flask_bootstrap import bootstrap_find_resource
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
 Manager = Manager(app)
