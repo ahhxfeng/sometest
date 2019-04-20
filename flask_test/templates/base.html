@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends 'bootstrap/base.html'%}
+
+{% block title %}Flasky{% endblock %}
+
+{% block navbar %}
+<div class="navbar nvabar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="nvabar-toggle"
+            data-toggle="collapse" data-target="navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Flasky</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                <li><a href="/">HOME</a></li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% block page_content %}{% endblock %}
+</div>
+{% endblock %}
