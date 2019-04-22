@@ -9,8 +9,16 @@ from flask_script import Manager
 # from flask_bootstrp import Bootstrap
 from flask_bootstrap import bootstrap_find_resource
 from flask_bootstrap import Bootstrap
+from flask_wtf import Form
+from wtforms import StringField, SubmitField
+from wtforms import Required
+
+class NameForm(Form):
+    name = StringField('what is your name ?', validators=[Required()])
+    submit = SubmitField('Submit')
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'this is hard to guess string'
 Manager = Manager(app)
 bootstrap = Bootstrap(app)
 
