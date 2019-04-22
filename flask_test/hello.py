@@ -11,7 +11,7 @@ from flask_bootstrap import bootstrap_find_resource
 from flask_bootstrap import Bootstrap
 from flask_wtf import Form
 from wtforms import StringField, SubmitField
-from wtforms import Required
+from wtforms.validators import Required
 
 class NameForm(Form):
     name = StringField('what is your name ?', validators=[Required()])
