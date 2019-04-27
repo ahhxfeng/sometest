@@ -22,10 +22,15 @@ app.config['SECRET_KEY'] = 'this is hard to guess string'
 Manager = Manager(app)
 bootstrap = Bootstrap(app)
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
     # return '<h1>Hello world !!!</h1>'
-    return render_template('index.html')
+    name = None
+    form = NameForm()
+    if form.validator_on_submit():
+        name = form.name.data
+        form.name.data = ''
+    return render_template('index.html', form=form, name=name )
 
 @app.route('/user/<name>')
 def user(name):
