@@ -10,5 +10,10 @@
     <h1>Hello world !!!!</h1>
     <h2> Hello , {% if name %}{{ name }}{% else %}Stanger{% endif %}</h2>
 </div>
-{{ wtf.quick_from(form) }}
+<form  method="post">
+    {{ form.hidden_tag() }}
+    {{ form.name.label }} {{ form.name() }}
+    {{ form.password.label }} {{ form.password() }}
+    {{ form.submit() }}
+</form>
 {% endblock%}

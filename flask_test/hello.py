@@ -9,11 +9,11 @@ from flask_script import Manager
 # from flask_bootstrp import Bootstrap
 from flask_bootstrap import bootstrap_find_resource
 from flask_bootstrap import Bootstrap
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import Required
 
-class NameForm(Form):
+class NameForm(FlaskForm):
     name = StringField('what is your name ?', validators=[Required()])
     submit = SubmitField('Submit')
 
@@ -45,4 +45,7 @@ def badtest():
 if __name__ == "__main__":
     # app.run(debug=True)
     Manager.run()
+temp = 'hha'
+print("This is {0}".format(temp))
+print(__name__)
 
