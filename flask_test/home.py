@@ -19,7 +19,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hard to guess!!'
 app.config['SQLALCHEMY_DATABASE_URI'] = \
-    "mysql+pymsql://ahhxfeng:123456@192.168.141.139:3306/test"
+    "mysql+pymysql://ahhxfeng:123456@192.168.141.139:3306/test"
 manager = Manager(app)
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
