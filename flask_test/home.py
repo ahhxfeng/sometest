@@ -11,6 +11,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField
 from wtforms.validators import Required
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate, MigrateCommand
 
 
 
@@ -22,6 +23,8 @@ manager = Manager(app)
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
 db.init_app(app)
+migrate = Migrate(app, db)
+
 
 class NameForm(FlaskForm):
     name = StringField('what is your name ?', validators=[Required()])
