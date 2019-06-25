@@ -9,6 +9,11 @@
 <div class="page-header">
     <h1>Hello world !!!!</h1>
     <h2> Hello , {% if name %}{{ name }}{% else %}Stanger{% endif %}</h2>
+    {% if not known %}
+    <p>please to see you !!!</p>
+    {% else %}
+    <p>Happy to see you again!!</p>
+    {% endif %}
 </div>
 <form  method="post">
     {{ form.hidden_tag() }}

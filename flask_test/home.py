@@ -1,13 +1,11 @@
 #! /usr/bin/env python
 #coding=utf-8
 
-from flask import Flask, render_template
-from flask import request
-from flask import current_app
-from flask import make_response
-from flask import redirect, session
-from flask import abort, url_for, flash
-from flask_script import Manager
+__author__ = 'ahhxfeng'
+__version__ = '1.0.0'
+
+from flask import Flask, render_template, request, current_app, make_response, redirect, session, abort, url_for, flash
+from flask_script import Manager, Shell
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField
@@ -59,6 +57,14 @@ def index():
         old_name = session.get('name')
         if old_name is not None and form.name.data != old_name:
             flash('look like you have change your name')
+        user = User.query.filter_by(username=form.name.data).first()
+        if user is None:
+            user = User(username = form.name.data)
+            db.session.add(user)
+            session['known'] = False
+        else:
+            session['known'] = True
+
         name = form.name.data
         form.name.data = ''
         session['name'] = name
@@ -69,7 +75,7 @@ def index():
     Broswer_info = '<p>Your browser is {0},current_name is {1}'.format(user_agent, current_app.name)
     response = make_response(
         # '<p>Your browser is {0},current_name is {1}'.format(user_agent, current_app.name), 
-        render_template('index.html', form=form, name=session.get('name')), 200)
+        render_template('index.html', form=form, name=session.get('name'), known=session.get('known', False)), 200)
     # response_test = make_response('he',  300, '2000')
     response.set_cookie('answer', '42')
     return response
@@ -87,6 +93,10 @@ def user(name):
     response = make_response(render_template('./user.html', name=name))
     response.set_cookie('answer', '20')
     return response
+
+def make_shell_context():
+    return dict(app=app, User=User, Role=Role)
+manager.add_command('shell', Shell(make_context=make_shell_context))
 
 if __name__ == "__main__":
     # app.run(debug=True)
