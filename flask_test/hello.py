@@ -1,4 +1,4 @@
-#! /usr/bin/env pytthon
+#! /usr/bin/env python
 #coding=utf-8
 
 __author__ = 'ahhxfeng'
@@ -45,7 +45,5 @@ def badtest():
 if __name__ == "__main__":
     # app.run(debug=True)
     Manager.run()
-temp = 'hha'
-print("This is {0}".format(temp))
-print(__name__)
+
 
