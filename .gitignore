@@ -5,6 +5,5 @@ flask_test/home.py
 .vscode/launch.json
 .pytest_cache/v/cache/stepwise
 flask_test/__pycache__/hello.cpython-37.pyc
-myenv/Include/Python.h
 myenv/
-myenv/Include/Python-ast.h
+
