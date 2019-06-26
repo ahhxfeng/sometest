@@ -20,7 +20,7 @@ from flask_mail import Mail, Message
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hard to guess!!'
 app.config['SQLALCHEMY_DATABASE_URI'] = \
-    "mysql+pymysql://ahhxfeng:123456@192.168.141.139:3306/test"
+    "mysql+pymysql://ahhxfeng:123456@localhost:3306/test"
 app.config['FLASKY_MAIL_SUBJECT_PREFIX'] = '[FLASKY]'
 app.config['MAIL_SENDER'] = 'Flaky admin <779107975@qq.com>'
 app.config['MAIL_SERVER'] = 'stmp.qq.com'
