@@ -21,7 +21,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hard to guess!!'
 app.config['SQLALCHEMY_DATABASE_URI'] = \
     "mysql+pymysql://ahhxfeng:123456@192.168.141.139:3306/test"
-app.config['FLASKY_MIAL_SUBJECT_PREFIX'] = '[FLASKY]'
+app.config['FLASKY_MAIL_SUBJECT_PREFIX'] = '[FLASKY]'
 app.config['MAIL_SENDER'] = 'Flaky admin <flasky@example.com>'
 app.config['MAIL_SERVER'] = 'stmp.googlemail.com'
 app.config['MAIL_PORT'] = 587
@@ -109,7 +109,7 @@ def make_shell_context():
 manager.add_command('shell', Shell(make_context=make_shell_context))
 
 def send_mail(to, subject, template, **kwargs):
-    msg = Message(app.config['FLASKY_MIAL_SUBJECT_PREFIX'] + subject,
+    msg = Message(app.config['FLASKY_MAIL_SUBJECT_PREFIX'] + subject,
                 sender=app.config['FLASKY_MAIL_SENDER'], recipients=[to])
     msg.body = render_template(template + '.txt', **kwargs)
     msg.html = render_template(template + '.html', **kwargs)
