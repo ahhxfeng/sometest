@@ -20,6 +20,7 @@ from flask_mail import Mail, Message
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hard to guess!!'
 app.config['SQLALCHEMY_DATABASE_URI'] = \
+<<<<<<< HEAD
     "mysql+pymysql://ahhxfeng:123456@192.168.141.139:3306/test"
 app.config['FLASKY_MAIL_SUBJECT_PREFIX'] = '[FLASKY]'
 app.config['MAIL_SENDER'] = 'Flaky admin <779107975@qq.com>'
@@ -29,6 +30,9 @@ app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = '779107975@qq.com'
 # app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
 app.config['MAIL_PASSWORD'] = 'zuhhszjaokwpbefj'
+=======
+    "mysql+pymysql://ahhxfeng:123456@localhost:3306/test"
+>>>>>>> update mysql url
 manager = Manager(app)
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
