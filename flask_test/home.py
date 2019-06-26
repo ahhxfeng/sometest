@@ -22,12 +22,13 @@ app.config['SECRET_KEY'] = 'hard to guess!!'
 app.config['SQLALCHEMY_DATABASE_URI'] = \
     "mysql+pymysql://ahhxfeng:123456@192.168.141.139:3306/test"
 app.config['FLASKY_MAIL_SUBJECT_PREFIX'] = '[FLASKY]'
-app.config['MAIL_SENDER'] = 'Flaky admin <flasky@example.com>'
-app.config['MAIL_SERVER'] = 'stmp.googlemail.com'
+app.config['MAIL_SENDER'] = 'Flaky admin <779107975@qq.com>'
+app.config['MAIL_SERVER'] = 'stmp.qq.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'ahhxfeng@gmail.com'
-app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
+app.config['MAIL_USERNAME'] = '779107975@qq.com'
+# app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
+app.config['MAIL_PASSWORD'] = 'zuhhszjaokwpbefj'
 manager = Manager(app)
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
@@ -75,6 +76,7 @@ def index():
             user = User(username = form.name.data)
             db.session.add(user)
             session['known'] = False
+            send_mail(app.config['MAIL_USERNAME'], 'NEW USER', 'mail/new_user', user=user)
         else:
             session['known'] = True
         name = form.name.data
