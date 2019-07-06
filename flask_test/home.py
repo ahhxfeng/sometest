@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-#coding=utf-8
+#-*-coding=utf-8-*-
 
 __author__ = 'ahhxfeng'
 __version__ = '1.0.0'
