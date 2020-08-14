@@ -1,4 +1,17 @@
+<<<<<<< HEAD
 __pycache__/
 /.vscode/
 /myenv/
 *.zip
+=======
+flask_test/__pycache__/home.cpython-37.pyc
+flask_test/home.py
+.pytest_cache/v/cache/nodeids
+.vscode/settings.json
+.vscode/launch.json
+.pytest_cache/v/cache/stepwise
+flask_test/__pycache__/hello.cpython-37.pyc
+.gitignore
+myenv/
+
+>>>>>>> 23fe9debfefae6dae2d1a902105aa01b079a149f
