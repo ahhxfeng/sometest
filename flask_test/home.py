@@ -29,6 +29,8 @@ app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = '779107975@qq.com'
 # app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
 app.config['MAIL_PASSWORD'] = 'zuhhszjaokwpbefj'
+    
+
 manager = Manager(app)
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
@@ -99,7 +101,7 @@ def index():
 def user(name):
     # return '<h1>Hello ,{0}</h1>'.format(name)
 
-    if name is 'h':
+    if name == 'h':
         abort(404)
     response = make_response(redirect('http://www.baidu.com'), '<h1>Hello ,{0}</h1>'.format(name))
     response = make_response(render_template('./user.html', name=name))
