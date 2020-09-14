@@ -1,4 +1,6 @@
 __pycache__/
-/.vscode/
+.vscode/
 /myenv/
 *.zip
+test/
+
